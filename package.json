@@ -1,0 +1,45 @@
+{
+  "name": "web-portfolio",
+  "version": "1.0.0",
+  "description": "My web portfolio",
+  "main": "starter.js",
+  "scripts": {
+    "build": "webpack --config ./Client/webpack.config.js",
+    "buildtest": "webpack -d --watch --config ./Client/webpack.config.js",
+    "start": "nodemon starter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobNance/Web-Portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "Collin Cashio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobNance/Web-Portfolio/issues"
+  },
+  "homepage": "https://github.com/JacobNance/Web-Portfolio#readme",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "materialize-css": "^1.0.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "webpack-cli": "^3.2.1"
+  }
+}
