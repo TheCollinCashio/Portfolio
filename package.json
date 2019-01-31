@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config ./Client/webpack.config.js",
     "buildtest": "webpack -d --watch --config ./Client/webpack.config.js",
-    "start": "nodemon starter.js"
+    "start": "nodemon starter.js",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
