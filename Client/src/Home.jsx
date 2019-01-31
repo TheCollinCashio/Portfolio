@@ -11,14 +11,27 @@ export default class Home extends React.Component {
     }
 
     render() {
-        let graduationDate = new Date("2019-05-18")
+        let graduationDate = new Date(2019, 5, 18)
         let graduated = this.state.currentDateTime > graduationDate
+
         let daysBeforeGraduation = 0
-        let monthsBeforeGraduation = 0
+        let hoursBeforeGraduation = 0
+        let minutesBeforeGraduation = 0
+        let secondsBeforeGraduation = 0
 
         if (!graduated) {
-            monthsBeforeGraduation = graduationDate.getMonth() - this.state.currentDateTime.getMonth()
-            daysBeforeGraduation = graduationDate.getDay() - this.state.currentDateTime.getDay()
+            let delta = Math.abs(graduationDate - this.state.currentDateTime) / 1000;
+
+            daysBeforeGraduation = Math.floor(delta / 86400)
+            delta -= daysBeforeGraduation * 86400
+
+            hoursBeforeGraduation = Math.floor(delta / 3600) % 24
+            delta -= hoursBeforeGraduation * 3600
+
+            minutesBeforeGraduation = Math.floor(delta / 60) % 60
+            delta -= minutesBeforeGraduation * 60
+
+            secondsBeforeGraduation = Math.floor(delta % 60)
         }
 
         return (
@@ -33,14 +46,13 @@ export default class Home extends React.Component {
                                 <div className="card-content">
                                     <span className="card-title activator grey-text text-darken-4">Southeastern Louisiana University<i className="material-icons right">more_vert</i></span>
                                     <p>
-                                        I will be graduating in <b>{ monthsBeforeGraduation }</b> months and <b>{ daysBeforeGraduation }</b> days
+                                        I will be graduating in <b>{ daysBeforeGraduation }</b> days, <b>{ hoursBeforeGraduation }</b> hours, <b>{ minutesBeforeGraduation }</b> minutes, and <b>{ secondsBeforeGraduation }</b> seconds. 
                                         I could go on and on about this university because it is the best (as far as I know). I learned so much from this school and hope to give back to this university some day.
                                     </p>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Southeastern Louisiana University<i className="material-icons right">close</i></span>
                                     <p>{ graduated ? 'I graduated from Southeastern Louisiana University with a 3.6 grade point average. I also was able to obtain the presidents list at least once each school year.' : 'I will be graduating from Southeastern Louisiana University this semester with a 3.6 grade point average. I was able to obtain the presidents list at least once each school year.' }</p>
-
                                 </div>
                             </div>
                         </div>
